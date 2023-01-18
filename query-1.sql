@@ -30,3 +30,7 @@ FROM employees;
 SELECT COUNT(*) AS emp_with_com
 FROM employees
 WHERE commission_pct != 0.0;
+
+/* 7.) Issue a query to count the number of employees’ first name column. The result should be just one row. */
+SELECT COUNT(first_name) AS first_name_count
+FROM employees;
