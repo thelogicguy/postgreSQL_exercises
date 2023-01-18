@@ -43,5 +43,4 @@ Do not use a where clause */
 SELECT department_id, department_name
 FROM departments
 WHERE department_id NOT IN (SELECT department_id
-                                FROM employees)
-ORDER BY department_name;
+                                FROM employees);
