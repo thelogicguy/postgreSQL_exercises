@@ -41,6 +41,7 @@ ORDER BY salary DESC;
 /* 11.) Display all the departments that exist in the departments table that are not in the employees’ table. 
 Do not use a where clause */
 SELECT department_id, department_name
-FROM departments 
-WHERE department_id NOT IN (SELECT )
+FROM departments
+WHERE department_id NOT IN (SELECT department_id
+                                FROM employees)
 ORDER BY department_name;
