@@ -44,3 +44,24 @@ SELECT department_id, department_name
 FROM departments
 WHERE department_id NOT IN (SELECT department_id
                                 FROM employees);
+
+
+/* 13.) Display all the departments name, street address, postal code, city, and state of each department. 
+Use the departments and locations table for this query. */
+SELECT * 
+FROM locations
+LIMIT 5;
+
+SELECT department_name, street_address, postal_code, city, state_province
+FROM departments d 
+LEFT JOIN locations l 
+ON d.location_id = l.location_id
+LIMIT 10;
+
+/* 14.) Display the first name and salary of all the employees in the accounting departments. */
+SELECT first_name, department_name, salary
+FROM employees e 
+LEFT JOIN departments d 
+ON e.department_id = d.department_id
+WHERE d.department_name = 'Accounting'
+ORDER BY salary DESC;
