@@ -40,10 +40,25 @@ ORDER BY salary DESC;
 
 /* 11.) Display all the departments that exist in the departments table that are not in the employees’ table. 
 Do not use a where clause */
-SELECT department_id, department_name
-FROM departments
-WHERE department_id NOT IN (SELECT department_id
-                                FROM employees);
+SELECT department_name
+FROM departments d
+EXCEPT (SELECT
+            DISTINCT department_name
+            FROM departments d
+            INNER JOIN employees e
+            ON e.department_id = d.department_id)
+ORDER BY department_name;
+
+/* 12.) Display all the departments that exist in department tables that are also in the employees’ table. 
+Do not use a where clause.  */
+SELECT department_name
+FROM departments d 
+INTERSECT (SELECT
+        department_name
+        FROM departments d 
+        INNER JOIN employees e 
+        ON e.department_id = d.department_id)
+ORDER BY department_name;
 
 
 /* 13.) Display all the departments name, street address, postal code, city, and state of each department. 
